@@ -23,13 +23,17 @@ while(True):
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
    for i in range(0,479):
-       color = frame[i,i]
-       r=r+color[0]
-       g=g+color[1]
-       b=b+color[2]
-   print("r=",r/480)
-   print("g=",g/480)
-   print("b=",b/480)
+       for j in range(0,479):
+           color = frame[i,j]
+           r=r+color[0]
+           g=g+color[1]
+           b=b+color[2]
+   print("r=",r/230400)
+   print("g=",g/230400)
+   print("b=",b/230400)
+   r=0
+   b=0
+   g=0
 
 
 # When everything done, release the capture

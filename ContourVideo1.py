@@ -16,23 +16,22 @@ while(True):
    ret, thresh_img = cv2.threshold(blur,91,255,cv2.THRESH_BINARY)
    contours =  cv2.findContours(thresh_img,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)[-2]
    for c in contours:
+       '''
         cv2.drawContours(frame, [c], -1, (0,255,0), 3)
+       '''
+       a,b=cv2.split(c)
+       print(a[0],b[0])
+        
 
      # Display the resulting frame
+    
    cv2.imshow('frame',frame)
+   
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
-   for i in range(0,479):
-<<<<<<< HEAD
-       color = frame[i,i]
-       r=r+color[0]
-       g=g+color[1] #rgb values extraction
-       b=b+color[2]
-   print("r=",r/480)
-   print("g=",g/480) #printing
-   print("b=",b/480)
-=======
-       for j in range(0,479):
+'''
+   for i in range(0,719):
+       for j in range(0,719):
            color = frame[i,j]
            r=r+color[0]
            g=g+color[1]
@@ -43,9 +42,9 @@ while(True):
    r=0
    b=0
    g=0
->>>>>>> 32ec81b7f7b1057a466df415679211d20daa853e
 
-
+'''
 # When everything done, release the capture
 cap.release()
+
 cv2.destroyAllWindows()

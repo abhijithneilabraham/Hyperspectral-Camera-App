@@ -12,7 +12,7 @@ while(True):
 
    # Our operations on the frame come here
    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-   blur = cv2.GaussianBlur(gray,(5,5),5)
+   blur = cv2.GaussianBlur(gray,(5,5),0)
    ret, thresh_img = cv2.threshold(blur,91,255,cv2.THRESH_BINARY)
    contours =  cv2.findContours(thresh_img,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)[-2]
    for c in contours:
@@ -20,6 +20,11 @@ while(True):
 
      # Display the resulting frame
    cv2.imshow('frame',frame)
+   for n in contours:
+       a,b =cv2.split(n)
+       print(a[0],b[0])
+
+   '''
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
    for i in range(0,479):
@@ -34,8 +39,9 @@ while(True):
    r=0
    b=0
    g=0
-
+        '''
 
 # When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
+

@@ -29,7 +29,7 @@ while(True):
    
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
-'''
+
    for i in range(0,719):
        for j in range(0,719):
            color = frame[i,j]
@@ -43,7 +43,7 @@ while(True):
    b=0
    g=0
 
-'''
+
 # When everything done, release the capture
 cap.release()
 

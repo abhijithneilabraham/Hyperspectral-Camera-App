@@ -1,3 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Jan 20 02:12:50 2019
+
+@author: abhijithneilabraham
+"""
+
 
 import cv2
 cap = cv2.VideoCapture(0)
@@ -27,30 +35,9 @@ while(True):
    cv2.imshow('frame',frame)
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
-   R=[]
-   G=[]
-   B=[]
-   for n in range(255):
-       for i in range(180,540):
-           for j in range(450,800):
-               color = frame[i,j]
-               if color[0]==n:
-                  r=r+1
-               if color[1]==n:
-                  g=g+1
-               if color[2]==n:
-                  b=b+1
-       
-       R.insert(n,r)
-       G.insert(n.,g)
-       B.insert(n,b)
-       
-     
-       r=0
-       b=0
-       g=0
-   print(R," , ",G," , ",B,"  \n",n)        
-                   
+   
+   hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)    
+   print(hsv)                  
 
 
 

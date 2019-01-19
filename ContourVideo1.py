@@ -20,6 +20,11 @@ while(True):
 
      # Display the resulting frame
    cv2.imshow('frame',frame)
+   for n in contours:
+       a,b =cv2.split(n)
+       print(a[0],b[0])
+
+   '''
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
    for i in range(0,479):
@@ -34,8 +39,9 @@ while(True):
    r=0
    b=0
    g=0
-
+        '''
 
 # When everything done, release the capture
 cap.release()
 cv2.destroyAllWindows()
+

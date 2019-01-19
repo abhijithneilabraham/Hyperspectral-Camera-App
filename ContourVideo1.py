@@ -25,10 +25,10 @@ while(True):
    for i in range(0,479):
        color = frame[i,i]
        r=r+color[0]
-       g=g+color[1]
+       g=g+color[1] #rgb values extraction
        b=b+color[2]
    print("r=",r/480)
-   print("g=",g/480)
+   print("g=",g/480) #printing
    print("b=",b/480)
 
 

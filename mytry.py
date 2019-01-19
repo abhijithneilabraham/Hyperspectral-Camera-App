@@ -9,12 +9,13 @@ Created on Sun Jan 20 02:12:50 2019
 
 import cv2
 cap = cv2.VideoCapture(0)
-r=0
-b=0
-g=0
+hu=0
+sa=0
+va=0
 while(True):
   # Capture frame-by-frame
    ret, frame = cap.read()
+   
    '''
    # Our operations on the frame come here
    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -36,8 +37,24 @@ while(True):
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
    
-   hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)    
-   print(hsv)                  
+   hee=[]
+   vee=[]             
+           
+               
+   
+   hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)  
+   h,s,v=cv2.split(hsv)
+   for n in range (255):
+       for i in range(180,540):
+           for j in range(450,800):
+               if h[0]==n:
+                   hu=hu+1
+               if v[0]==n:
+                   va=va+1
+                   
+       hee.insert(n,hu) 
+       vee.insert(n,va)                
+                                
 
 
 

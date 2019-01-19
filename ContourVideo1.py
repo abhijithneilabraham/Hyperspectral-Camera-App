@@ -24,8 +24,9 @@ while(True):
         
 
      # Display the resulting frame
-    
+   frame = cv2.rectangle(frame,(450,180),(800,540),(0,255,0),1)
    cv2.imshow('frame',frame)
+   
    
    if cv2.waitKey(1) & 0xFF == ord('q'):
       break
@@ -43,12 +44,12 @@ while(True):
    b=0
    g=0
 
-'''
+
 # When everything done, release the capture
 cap.release()
 
 
 cv2.destroyAllWindows()
 
-cv2.destroyAllWindows()
+
 

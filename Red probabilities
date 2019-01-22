@@ -33,6 +33,7 @@ cv2.imshow("frame1",frame1)
 #if cv2.waitKey(1) & 0xFF == ord('q'):
 #   break
 x=0
+y=0
 area=[]
 R=[]
 G=[]
@@ -43,19 +44,19 @@ for n in range(0,255):
     upper_range = np.array([n+1, 255, 255])
     #lower_range1 = cv2.cvtColor(lower_range, cv2.COLOR_HSV2BGR)
     #upper_range1 = cv2.cvtColor(upper_range, cv2.COLOR_HSV2BGR)
-    mask = cv2.inRange(frame, lower_range, upper_range)
+    mask = cv2.inRange(frame1, lower_range, upper_range)
     contour = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)[-2]
-    res=cv2.bitwise_and(frame,frame,mask=mask)
+    res=cv2.bitwise_and(frame1,frame1,mask=mask)
     for p in contour:
-        cv2.drawContours(frame, [p], -1, (0,255,0), 3)
+        cv2.drawContours(frame1, [p], -1, (0,255,0), 3)
     cv2.imshow("mask",mask)
-    cv2.imshow("res",res)
-    print(n," ")  
+    cv2.imshow("res",res)  
     for c in contour:
        x+=cv2.contourArea(c)
-    area.append(x)
+    area.append(x/126000)
     x=0
-print(area)          
+for y in range(255):
+   print(area[y],"\n")          
     #area=cv2.contourArea(contourR)
        
 #print(R," , ",G," , ",B,"  \n",n)        

@@ -42,7 +42,7 @@ while(True):
                   b=b+1
        
        R.insert(n,r)
-       G.insert(n.,g)
+       G.insert(n,g)
        B.insert(n,b)
        
      

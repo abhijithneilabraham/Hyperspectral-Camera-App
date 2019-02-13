@@ -1,22 +1,17 @@
+
 import cv2
 import numpy as np
 from time import sleep
 cap = cv2.VideoCapture(0)
 
  # Capture frame-by-frame
- '''
+'''
  going to simply add a program to find the different screen resolutions that might arise in different systems
  this might help in drawing the roi
- '''
+'''
 ret, frame = cap.read()
-counter1=0
-counter2=0
-for i in frame:
-   counter1+=1
-for i in frame[0]:
-    counter2+=1
-print(counter1,counter2)
 
+print(len(frame),len(frame[0]))#to get the screen resolution of the device we are using.
 
 r=0
 b=0
@@ -87,4 +82,3 @@ cap.release()
 
 
 cv2.destroyAllWindows()
-
